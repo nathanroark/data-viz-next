@@ -138,7 +138,8 @@ export const ForceGraph: React.FC<ForceGraphProps> = ({ nodes, links }) => {
           .attr("fill", (d) => color(d.group!.toString())) // Use group for color
           .attr("cx", (d) => d.x ?? 0)
           .attr("cy", (d) => d.y ?? 0)
-          .call(drag(simulation) as any);
+          // @ts-expect-error TS2339
+          .call(drag(simulation));
       }
     }
 
