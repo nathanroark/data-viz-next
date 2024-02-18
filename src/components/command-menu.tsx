@@ -111,21 +111,23 @@ export function CommandMenu({ ...props }: DialogProps) {
           {/*     ))} */}
           {/*   </CommandGroup> */}
           {/* ))} */}
-          <CommandSeparator />
-          <CommandGroup heading="Theme">
-            <CommandItem onSelect={() => runCommand(() => setTheme("light"))}>
-              <SunIcon className="mr-2 h-4 w-4" />
-              Light
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => setTheme("dark"))}>
-              <MoonIcon className="mr-2 h-4 w-4" />
-              Dark
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => setTheme("system"))}>
-              <LaptopIcon className="mr-2 h-4 w-4" />
-              System
-            </CommandItem>
-          </CommandGroup>
+
+          {/* might be cool if i want to have mode switching */}
+          {/*   <CommandSeparator /> */}
+          {/*   <CommandGroup heading="Theme"> */}
+          {/*     <CommandItem onSelect={() => runCommand(() => setTheme("light"))}> */}
+          {/*       <SunIcon className="mr-2 h-4 w-4" /> */}
+          {/*       Light */}
+          {/*     </CommandItem> */}
+          {/*     <CommandItem onSelect={() => runCommand(() => setTheme("dark"))}> */}
+          {/*       <MoonIcon className="mr-2 h-4 w-4" /> */}
+          {/*       Dark */}
+          {/*     </CommandItem> */}
+          {/*     <CommandItem onSelect={() => runCommand(() => setTheme("system"))}> */}
+          {/*       <LaptopIcon className="mr-2 h-4 w-4" /> */}
+          {/*       System */}
+          {/*     </CommandItem> */}
+          {/*   </CommandGroup> */}
         </CommandList>
       </CommandDialog>
     </>
