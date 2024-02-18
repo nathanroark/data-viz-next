@@ -30,7 +30,7 @@ function Line<DataType>({
     (lineGenerator as d3.Area<DataType>).y0(y0Accessor).y1(yAccessor);
   }
 
-  const line = lineGenerator(data) as string;
+  const line = lineGenerator(data)!;
 
   return <path {...props} className={`Line Line--type-${type}`} d={line} />;
 }

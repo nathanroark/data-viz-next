@@ -1,9 +1,9 @@
-import * as d3 from 'd3';
+import * as d3 from "d3";
 
-import Chart from './Chart/Chart';
-import Axis from './Chart/Axis';
-import { useChartDimensions } from './Chart/utils';
-import type { ScatterPlotData } from '../utils/types';
+import Chart from "./Chart/Chart";
+import Axis from "./Chart/Axis";
+import { useChartDimensions } from "./Chart/utils";
+import type { ScatterPlotData } from "../utils/types";
 
 function ScatterPlot({
   dataset,

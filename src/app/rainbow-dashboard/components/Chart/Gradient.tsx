@@ -1,5 +1,5 @@
 function Gradient({
-  id = 'Gradient',
+  id = "Gradient",
   colors = [],
   ...props
 }: {

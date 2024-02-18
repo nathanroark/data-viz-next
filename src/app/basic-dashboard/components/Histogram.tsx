@@ -46,11 +46,10 @@ function Histogram({
     .range([dimensions.boundedHeight, 0])
     .nice();
 
-  const xAccessorScaled = (bin: DataBin) =>
-    xScale(bin.x0 as number) + barPadding;
+  const xAccessorScaled = (bin: DataBin) => xScale(bin.x0!) + barPadding;
   const yAccessorScaled = (bin: DataBin) => yScale(yAccessor(bin));
   const widthAccessorScaled = (bin: DataBin) =>
-    xScale(bin.x1 as number) - xScale(bin.x0 as number) - barPadding;
+    xScale(bin.x1!) - xScale(bin.x0!) - barPadding;
   const heightAccessorScaled = (bin: DataBin) =>
     dimensions.boundedHeight - yScale(yAccessor(bin));
   const callAccessor = (

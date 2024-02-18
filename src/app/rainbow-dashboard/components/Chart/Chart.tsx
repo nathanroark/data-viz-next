@@ -1,8 +1,8 @@
-'use client';
-import * as React from 'react';
-import type { BoundedDimensions } from '../../utils/types';
+"use client";
+import * as React from "react";
+import type { BoundedDimensions } from "../../utils/types";
 
-import './Chart.css';
+import "./Chart.css";
 
 const ChartContext = React.createContext<BoundedDimensions>({
   width: 0,

@@ -1,9 +1,9 @@
-import * as d3 from 'd3';
-import { useDimensionsContext } from './Chart';
-import { BoundedDimensions } from '../../utils/types';
+import * as d3 from "d3";
+import { useDimensionsContext } from "./Chart";
+import type { BoundedDimensions } from "../../utils/types";
 
 interface BaseAxisProps {
-  dimension: 'x' | 'y';
+  dimension: "x" | "y";
   scale:
     | d3.ScaleTime<number, number, never>
     | d3.ScaleLinear<number, number, never>;
@@ -12,17 +12,17 @@ interface BaseAxisProps {
 }
 
 function Axis({
-  dimension = 'x',
+  dimension = "x",
   scale,
-  formatTick = d3.format(','),
-  label = '',
+  formatTick = d3.format(","),
+  label = "",
   ...props
 }: BaseAxisProps) {
-  const dimensions = useDimensionsContext() as BoundedDimensions;
+  const dimensions = useDimensionsContext();
 
   return (
     <>
-      {dimension === 'x' ? (
+      {dimension === "x" ? (
         <AxisHorizontal
           scale={scale}
           formatTick={formatTick}
@@ -43,7 +43,7 @@ function Axis({
   );
 }
 
-interface AxisProps extends Omit<BaseAxisProps, 'dimension'> {
+interface AxisProps extends Omit<BaseAxisProps, "dimension"> {
   dimensions: BoundedDimensions;
   formatTick?: (tick: number | { valueOf(): number }) => string;
 }
@@ -53,7 +53,7 @@ export default Axis;
 function AxisHorizontal({
   dimensions,
   label,
-  formatTick = d3.format(','),
+  formatTick = d3.format(","),
   scale,
   ...props
 }: AxisProps) {
@@ -96,7 +96,7 @@ function AxisHorizontal({
 function AxisVertical({
   dimensions,
   label,
-  formatTick = d3.format(','),
+  formatTick = d3.format(","),
   scale,
   ...props
 }: AxisProps) {

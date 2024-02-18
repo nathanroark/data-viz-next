@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { TRPCReactProvider } from "@/trpc/react";
 import { siteConfig } from "@/lib/site";
 import { SiteHeader } from "@/components/site-header";
@@ -59,13 +59,6 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-};
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
 };
 
 interface RootLayoutProps {

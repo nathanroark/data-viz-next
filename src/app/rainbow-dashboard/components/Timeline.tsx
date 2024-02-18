@@ -1,11 +1,11 @@
-import * as d3 from 'd3';
+import * as d3 from "d3";
 
-import Chart from './Chart/Chart';
-import Line from './Chart/Line';
-import Axis from './Chart/Axis';
-import Gradient from './Chart/Gradient';
-import { useChartDimensions } from './Chart/utils';
-import { TimelineData } from '../utils/types';
+import Chart from "./Chart/Chart";
+import Line from "./Chart/Line";
+import Axis from "./Chart/Axis";
+import Gradient from "./Chart/Gradient";
+import { useChartDimensions } from "./Chart/utils";
+import type { TimelineData } from "../utils/types";
 
 function Timeline({
   dataset,
@@ -21,7 +21,7 @@ function Timeline({
   const [ref, dimensions] = useChartDimensions({
     // marginBottom: 80,
   });
-  const gradientId = 'Timeline-gradient';
+  const gradientId = "Timeline-gradient";
 
   const xScale = d3
     .scaleTime()
@@ -36,10 +36,24 @@ function Timeline({
 
   const xAccessorScaled = (d: TimelineData) => xScale(xAccessor(d));
   const yAccessorScaled = (d: TimelineData) => yScale(yAccessor(d));
-  const y0AccessorScaled = () => yScale(yScale.domain()[0] as number);
+  const y0AccessorScaled = () => yScale(yScale.domain()[0]!);
 
-  const tickFormat = (tick: number | { valueOf(): number }): string =>
-    tick instanceof Date ? tick.toLocaleDateString() : tick.toString();
+  const tickFormat = (tick: number | { valueOf(): number }): string => {
+    if (tick instanceof Date) {
+      return tick.toLocaleDateString();
+    } else if (typeof tick === "number") {
+      return tick.toString();
+    } else if (tick && typeof tick.valueOf === "function") {
+      // Attempt to use valueOf() for custom objects that might define it
+      const value = tick.valueOf();
+      if (typeof value === "number") {
+        return value.toString();
+      }
+    }
+    // Fallback for any other types, providing a generic way to attempt conversion
+    // to string that avoids the '[object Object]' issue.
+    return String(tick);
+  };
 
   const stops = d3.range(120).map((i) => i / 99);
 

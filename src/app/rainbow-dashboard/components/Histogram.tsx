@@ -1,11 +1,11 @@
-import * as d3 from 'd3';
+import * as d3 from "d3";
 
-import Chart from './Chart/Chart';
-import Axis from './Chart/Axis';
-import Gradient from './Chart/Gradient';
-import { useChartDimensions } from './Chart/utils';
-import { HistogramData } from '../utils/types';
-import useHasMounted from '../utils/useHasMounted';
+import Chart from "./Chart/Chart";
+import Axis from "./Chart/Axis";
+import Gradient from "./Chart/Gradient";
+import { useChartDimensions } from "./Chart/utils";
+import type { HistogramData } from "../utils/types";
+import useHasMounted from "../utils/useHasMounted";
 function Histogram({
   dataset,
   xAccessor,
@@ -15,7 +15,7 @@ function Histogram({
   xAccessor: (d: HistogramData) => number;
   label: string;
 }) {
-  const gradientId = 'Histogram-gradient';
+  const gradientId = "Histogram-gradient";
   const [ref, dimensions] = useChartDimensions({
     marginBottom: 77,
   });
@@ -46,17 +46,16 @@ function Histogram({
     .range([dimensions.boundedHeight, 0])
     .nice();
 
-  const xAccessorScaled = (bin: DataBin) =>
-    xScale(bin.x0 as number) + barPadding;
+  const xAccessorScaled = (bin: DataBin) => xScale(bin.x0!) + barPadding;
   const yAccessorScaled = (bin: DataBin) => yScale(yAccessor(bin));
   const widthAccessorScaled = (bin: DataBin) =>
-    xScale(bin.x1 as number) - xScale(bin.x0 as number) - barPadding;
+    xScale(bin.x1!) - xScale(bin.x0!) - barPadding;
   const heightAccessorScaled = (bin: DataBin) =>
     dimensions.boundedHeight - yScale(yAccessor(bin));
   const callAccessor = (
     accessor: (bin: d3.Bin<HistogramData, number>) => number,
     d: d3.Bin<HistogramData, number>,
-  ) => (typeof accessor === 'function' ? accessor(d) : accessor);
+  ) => (typeof accessor === "function" ? accessor(d) : accessor);
   const keyAccessor = (_: DataBin, i: number) => i;
 
   const barPadding = 2;

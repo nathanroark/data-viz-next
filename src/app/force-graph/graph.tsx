@@ -139,7 +139,7 @@ export const ForceGraph: React.FC<ForceGraphProps> = ({ nodes, links }) => {
           .attr("cx", (d) => d.x ?? 0)
           .attr("cy", (d) => d.y ?? 0)
           // @ts-expect-error TS2339
-          .call(drag(simulation));
+          .call(drag(sim));
       }
     }
 
