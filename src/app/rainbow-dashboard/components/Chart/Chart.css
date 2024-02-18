@@ -47,12 +47,12 @@
 }
 
 .Circles__circle {
-    fill: #9980FA;
+    fill: #9980fa;
     transition: all 0.3s ease-out;
 }
 
 .Bars__rect {
-    fill: #9980FA;
+    fill: #9980fa;
     transition: all 0.3s ease-out;
 }
 

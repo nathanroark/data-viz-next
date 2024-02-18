@@ -14,8 +14,8 @@ type FormatTickFunction = ((n: number) => string) | ((date: Date) => string);
 interface BaseAxisProps {
   dimension: "x" | "y";
   scale:
-  | d3.ScaleTime<number, number, never>
-  | d3.ScaleLinear<number, number, never>;
+    | d3.ScaleTime<number, number, never>
+    | d3.ScaleLinear<number, number, never>;
   formatTick?: FormatTickFunction;
   label?: string;
   numberOfTicks?: number;
@@ -121,8 +121,9 @@ function AxisHorizontal({
       {label ? (
         <text
           className={[styles.axisLabel, labelClassName].join(" ")}
-          transform={`translate(${dimensions.boundedWidth / 2}, ${dimensions.marginBottom! - 10
-            })`}
+          transform={`translate(${dimensions.boundedWidth / 2}, ${
+            dimensions.marginBottom! - 10
+          })`}
           textAnchor="middle"
         >
           {label}
@@ -168,8 +169,9 @@ function AxisVertical({
       {label ? (
         <text
           className={[styles.axisLabel, labelClassName].join(" ")}
-          transform={`translate(${-dimensions.marginLeft! + 20}, ${dimensions.boundedHeight / 2
-            }) rotate(-90)`}
+          transform={`translate(${-dimensions.marginLeft! + 20}, ${
+            dimensions.boundedHeight / 2
+          }) rotate(-90)`}
           textAnchor="middle"
         >
           {label}

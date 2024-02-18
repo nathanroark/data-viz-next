@@ -16,21 +16,22 @@ h1 {
 
 .Timeline {
     height: 300px;
-    min-width: 500px;
-    width: calc(100% + 1em);
+    /* min-width: 500px; */
+    width: calc(100% - 1em);
     margin-bottom: 2em;
 }
 
 .Histogram {
-    height: 500px;
+    height: 400px;
     flex: 1;
-    min-width: 500px;
+    /* min-width: 500px; */
     overflow: hidden;
 }
 
 .ScatterPlot {
-    height: 500px;
+    height: 400px;
     max-width: 500px;
+    /* width: 100%; */
     margin-right: 2em;
 }
 

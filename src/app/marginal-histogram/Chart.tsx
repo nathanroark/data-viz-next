@@ -44,9 +44,9 @@ type TooltipState = {
 
 type TooltipAction =
   | {
-    type: "SHOW";
-    payload: Omit<TooltipState, "show">;
-  }
+      type: "SHOW";
+      payload: Omit<TooltipState, "show">;
+    }
   | { type: "HIDE" };
 
 function tooltipReducer(state: TooltipState, action: TooltipAction) {
@@ -114,9 +114,9 @@ type LegendState = {
 
 type LegendAction =
   | {
-    type: "SHOW";
-    payload: Omit<LegendState, "show">;
-  }
+      type: "SHOW";
+      payload: Omit<LegendState, "show">;
+    }
   | { type: "HIDE" };
 
 function legendReducer(state: LegendState, action: LegendAction) {
@@ -358,10 +358,10 @@ export default function MarginalHistogram({
                   fill: colorAccessorScaled(data),
                   opacity: legend.show
                     ? isDayWithinRange(
-                      data,
-                      legend.minDateToHighlight,
-                      legend.maxDateToHighlight,
-                    )
+                        data,
+                        legend.minDateToHighlight,
+                        legend.maxDateToHighlight,
+                      )
                       ? 1
                       : 0.08
                     : 1,
@@ -369,10 +369,10 @@ export default function MarginalHistogram({
                 r={
                   legend.show
                     ? isDayWithinRange(
-                      data,
-                      legend.minDateToHighlight,
-                      legend.maxDateToHighlight,
-                    )
+                        data,
+                        legend.minDateToHighlight,
+                        legend.maxDateToHighlight,
+                      )
                       ? 5
                       : 2
                     : 4
@@ -397,8 +397,9 @@ export default function MarginalHistogram({
           <g
             className="top-histogram"
             style={{
-              transform: `translate(0, ${-dimensions.histogramHeight - dimensions.histogramMargin
-                }px)`,
+              transform: `translate(0, ${
+                -dimensions.histogramHeight - dimensions.histogramMargin
+              }px)`,
             }}
           >
             <path
@@ -414,8 +415,9 @@ export default function MarginalHistogram({
           <g
             className="rightHistogram"
             style={{
-              transform: `translate(${dimensions.boundedWidth + dimensions.histogramMargin
-                }px, -${dimensions.histogramHeight}px) rotate(90deg)`,
+              transform: `translate(${
+                dimensions.boundedWidth + dimensions.histogramMargin
+              }px, -${dimensions.histogramHeight}px) rotate(90deg)`,
             }}
           >
             <path
@@ -473,8 +475,10 @@ export default function MarginalHistogram({
             labelClassName="axisLabel"
           />
           <g
-            transform={`translate(${dimensions.boundedWidth - dimensions.legendWidth - 9
-              }, ${dimensions.boundedHeight - 37})`}
+            transform={`translate(${
+              dimensions.boundedWidth - dimensions.legendWidth - 9
+            }, ${dimensions.boundedHeight - 37})`}
+            className="w-24"
           >
             <rect
               width={dimensions.legendWidth}
@@ -507,6 +511,7 @@ export default function MarginalHistogram({
                 opacity: legend.show ? 1 : 0,
                 transform: `translateX(${legend.barX}px)`,
               }}
+              className="max-w-fit"
             >
               <rect
                 className="legendHighlightBar"

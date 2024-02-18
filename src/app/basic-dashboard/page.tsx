@@ -1,16 +1,16 @@
-'use client';
-import './index.css';
-import * as d3 from 'd3';
-import { useState, useEffect, useRef } from 'react';
-import Timeline from './components/Timeline';
-import ScatterPlot from './components/ScatterPlot';
-import Histogram from './components/Histogram';
-import { getTimelineData, getScatterData } from './utils/dummyData';
+"use client";
+import "./index.css";
+import * as d3 from "d3";
+import { useState, useEffect, useRef } from "react";
+import Timeline from "./components/Timeline";
+import ScatterPlot from "./components/ScatterPlot";
+import Histogram from "./components/Histogram";
+import { getTimelineData, getScatterData } from "./utils/dummyData";
 import type {
   ScatterPlotData,
   TimelineData,
   HistogramData,
-} from './utils/types';
+} from "./utils/types";
 
 const getData = () => ({
   timeline: getTimelineData(),
@@ -41,7 +41,7 @@ function useInterval(callback: () => void, delay: number | null): void {
 export default function Page() {
   const [data, setData] = useState(getData());
 
-  const parseDate = d3.timeParse('%m/%d/%Y') as (date: string) => Date;
+  const parseDate = d3.timeParse("%m/%d/%Y") as (date: string) => Date;
   const dateAccessor = (d: TimelineData) => parseDate(d.date);
   const temperatureAccessor = (
     d: ScatterPlotData | TimelineData | HistogramData,
@@ -53,15 +53,15 @@ export default function Page() {
   }, 4000);
 
   return (
-    <div className="App">
+    <div>
       <h1>
         Basic Dashboard
         <span
           style={{
-            fontSize: '14px',
-            color: 'paleturquoise',
-            fontWeight: 'lighter',
-            paddingLeft: '16px',
+            fontSize: "14px",
+            color: "paleturquoise",
+            fontWeight: "lighter",
+            paddingLeft: "16px",
           }}
         >
           with random data
@@ -74,18 +74,20 @@ export default function Page() {
           yAccessor={temperatureAccessor}
           label="Temperature"
         />
-        <ScatterPlot
-          dataset={data.scatter}
-          xAccessor={humidityAccessor}
-          yAccessor={temperatureAccessor}
-          xLabel="Humidity"
-          yLabel="Temperature"
-        />
-        <Histogram
-          dataset={data.histogram}
-          xAccessor={humidityAccessor}
-          label="Humidity"
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          <ScatterPlot
+            dataset={data.scatter}
+            xAccessor={humidityAccessor}
+            yAccessor={temperatureAccessor}
+            xLabel="Humidity"
+            yLabel="Temperature"
+          />
+          <Histogram
+            dataset={data.histogram}
+            xAccessor={humidityAccessor}
+            label="Humidity"
+          />
+        </div>
       </div>
     </div>
   );

@@ -80,32 +80,32 @@ export function MobileNav() {
                 ),
             )}
           </div>
-          <div className="flex flex-col space-y-2">
-            {demos.map((demo, index) => (
-              <div
-                key={index + demo.href}
-                className="flex flex-col space-y-3 pt-6"
-              >
-                <h4 className="font-medium">{demo.name}</h4>
-                <React.Fragment key={demo.href}>
-                  (item.href ? (
-                  <MobileLink
-                    href={demo.href}
-                    onOpenChange={setOpen}
-                    className="text-muted-foreground"
-                  >
-                    {demo.name}
-                    {demo.name && (
-                      <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
-                        {demo.name}
-                      </span>
-                    )}
-                  </MobileLink>
-                  ) : ( demo.name )
-                </React.Fragment>
-              </div>
-            ))}
-          </div>
+          {/* <div className="flex flex-col space-y-2"> */}
+          {/*   {demos.map((demo, index) => ( */}
+          {/*     <div */}
+          {/*       key={index + demo.href} */}
+          {/*       className="flex flex-col space-y-3 pt-6" */}
+          {/*     > */}
+          {/*       <h4 className="font-medium">{demo.name}</h4> */}
+          {/*       <React.Fragment key={demo.href}> */}
+          {/*         (item.href ? ( */}
+          {/*         <MobileLink */}
+          {/*           href={demo.href} */}
+          {/*           onOpenChange={setOpen} */}
+          {/*           className="text-muted-foreground" */}
+          {/*         > */}
+          {/*           {demo.name} */}
+          {/*           {demo.name && ( */}
+          {/*             <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline"> */}
+          {/*               {demo.name} */}
+          {/*             </span> */}
+          {/*           )} */}
+          {/*         </MobileLink> */}
+          {/*         ) : ( demo.name ) */}
+          {/*       </React.Fragment> */}
+          {/*     </div> */}
+          {/*   ))} */}
+          {/* </div> */}
         </ScrollArea>
       </SheetContent>
     </Sheet>
