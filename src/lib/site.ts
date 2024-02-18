@@ -4,7 +4,8 @@ export const siteConfig = {
   ogImage: "https://data-viz.nathanroark.dev/og.png",
   description: "Data Visualizations created with D3 in Next.js.",
   links: {
-    twitter: "https://twitter.com/nathanroark1",
+    cv: "https://nathanroark.dev",
+    twitter: "https://twitter.com/nathanroark",
     github: "https://github.com/nathanroark/data-viz-next",
   },
 };

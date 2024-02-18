@@ -19,11 +19,7 @@ export function SiteHeader() {
             <CommandMenu />
           </div>
           <nav className="flex items-center">
-            <Link
-              href={siteConfig.links.twitter}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Link href={siteConfig.links.cv} target="_blank" rel="noreferrer">
               <div
                 className={cn(
                   buttonVariants({
@@ -32,7 +28,7 @@ export function SiteHeader() {
                   "w-9 px-0",
                 )}
               >
-                <Icons.twitter className="h-5 w-5 fill-current" />
+                <Icons.campfire className="h-5 w-5 fill-current" />
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>

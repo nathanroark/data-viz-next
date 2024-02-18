@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "shadcn",
-      url: "https://shadcn.com",
+      name: "Nathan Roark",
+      url: "https://nathanroark.dev",
     },
   ],
-  creator: "shadcn",
+  creator: "Nathan Roark",
   openGraph: {
     type: "website",
     locale: "en_US",

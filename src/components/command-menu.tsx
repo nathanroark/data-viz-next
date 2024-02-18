@@ -3,16 +3,7 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import type { DialogProps } from "@radix-ui/react-dialog";
-import {
-  CircleIcon,
-  FileIcon,
-  LaptopIcon,
-  MoonIcon,
-  SunIcon,
-} from "@radix-ui/react-icons";
-import { useTheme } from "next-themes";
-
-// import { docsConfig } from "@/config/docs";
+import { Link2Icon } from "@radix-ui/react-icons";
 import { demos } from "@/lib/demos";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -23,13 +14,11 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/components/ui/command";
 
 export function CommandMenu({ ...props }: DialogProps) {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
-  const { setTheme } = useTheme();
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -86,7 +75,7 @@ export function CommandMenu({ ...props }: DialogProps) {
                   runCommand(() => router.push(demo.href));
                 }}
               >
-                <FileIcon className="mr-2 h-4 w-4" />
+                <Link2Icon className="mr-2 h-4 w-4" />
                 {demo.name}
               </CommandItem>
             ))}
