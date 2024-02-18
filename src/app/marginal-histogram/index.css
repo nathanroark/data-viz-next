@@ -1,0 +1,232 @@
+/* Import and use the Inter font https://rsms.me/inter/ */
+@import url("https://rsms.me/inter/inter.css");
+
+/* .container { */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   align-items: center; */
+/*   padding: 2em 2em; */
+/*   letter-spacing: -0.011em; */
+/*   font-family: "Inter var", sans-serif; */
+/*   font-size: 16px; */
+/*   color: hsl(0, 0%, 81%); */
+/* } */
+
+.title {
+  position: relative;
+  width: 600px;
+  margin-bottom: 0.2em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-feature-settings: "tnum" 1;
+}
+
+.description {
+  max-width: 40em;
+  margin-bottom: 1em;
+  font-size: 0.9em;
+  text-align: center;
+  line-height: 1.4em;
+  opacity: 0.5;
+}
+
+/* .wrapper { */
+/*   position: relative; */
+/* } */
+
+.chart text {
+  fill: hsl(210deg 29% 29%);
+}
+
+/* .boundsBackground {
+  fill: hsl(0deg 0% 100%);
+} */
+
+.axisLabel {
+  font-size: 1.4em;
+}
+
+.tick line,
+.domain {
+  stroke: hsl(207deg 10% 83%);
+  stroke-width: 1;
+}
+
+.dot {
+  fill: hsl(221deg 98% 67%);
+  pointer-events: none;
+  transition: opacity 0.7s;
+  transition: all 0.5s ease-out;
+}
+
+.voronoi {
+  /* stroke: hsl(11deg 98% 67%); */
+  fill: transparent;
+}
+
+.tooltipDot {
+  fill: none;
+  stroke: hsl(322deg 57% 28%);
+  stroke-width: 2px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hoverLine {
+  /* fill: hsl(239deg 42% 54%); */
+  fill: hsl(0, 0%, 90%);
+
+  transition: all 0.2s ease-out;
+  /* opacity: 0.2; */
+  pointer-events: none;
+  mix-blend-mode: color-burn;
+}
+
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  top: -14px;
+  left: 0;
+  padding: 0.6em 1em;
+  /* background: hsl(0deg 0% 100%); */
+  background: hsl(0, 0%, 0%);
+  text-align: center;
+  line-height: 1.4em;
+  font-size: 0.9em;
+  border: 1px solid hsl(0deg 0% 87%);
+  z-index: 10;
+  transition: all 0.1s ease-out;
+  pointer-events: none;
+}
+
+.tooltip:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  /* background: hsl(0deg 0% 100%); */
+  border: 1px solid hsl(0deg 0% 87%);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: translate(-50%, 50%) rotate(45deg);
+  transform-origin: center center;
+  z-index: 10;
+}
+
+.tooltipDate {
+  margin-bottom: 0.2em;
+  font-weight: 600;
+  font-size: 1.1em;
+  line-height: 1.4em;
+}
+
+.rightHistogram {
+  transform-origin: 0 70px;
+}
+
+.histogramArea {
+  fill: hsl(0, 0%, 30%);
+}
+
+.legendValue {
+  font-size: 0.76em;
+  text-anchor: middle;
+  font-feature-settings: "tnum" 1;
+  transition: all 0.2s ease-out;
+}
+
+.legendTick {
+  stroke: hsl(210deg 29% 29%);
+}
+
+.legendHighlightBar {
+  fill: hsl(0deg 0% 100% / 0.302);
+  stroke: hsl(0deg 0% 100%);
+  stroke-width: 2px;
+  pointer-events: none;
+  shape-rendering: crispEdges;
+}
+
+.legendHighlightText {
+  text-anchor: middle;
+  font-size: 0.8em;
+  font-feature-settings: "tnum" 1;
+}
+
+body {
+  letter-spacing: -0.011em;
+  font-size: 16px;
+}
+
+h1 {
+  font-weight: 900;
+  margin: 0.4em 0 0.6em;
+}
+
+/* placeholders */
+.placeholder {
+  background: #ecf0f1;
+}
+
+.Chart {
+  overflow: visible;
+}
+
+.Chart text {
+  fill: #95a5a6;
+}
+
+.Line {
+  transition: all 0.3s ease-out;
+}
+
+.Line--type-line {
+  fill: none;
+  stroke: #9980fa;
+  stroke-width: 3px;
+  stroke-linecap: round;
+}
+
+.Line--type-area {
+  fill: rgba(152, 128, 250, 0.185);
+  stroke-width: 0;
+}
+
+.Axis__line {
+  stroke: #bdc3c7;
+}
+
+.Axis__label {
+  text-anchor: middle;
+  font-size: 0.9em;
+  letter-spacing: 0.01em;
+}
+
+.Axis__tick {
+  font-size: 0.8em;
+  transition: all 0.3s ease-out;
+}
+
+.AxisHorizontal .Axis__tick {
+  text-anchor: middle;
+}
+
+.AxisVertical .Axis__tick {
+  /* dominant-baseline: middle; */
+  text-anchor: end;
+}
+
+.Bars__rect {
+  fill: #9980fa;
+  transition: all 0.3s ease-out;
+}
+
+.domain,
+.tick line {
+  stroke: #dadada;
+}

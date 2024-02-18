@@ -1,0 +1,67 @@
+body {
+    letter-spacing: -0.011em;
+    font-size: 16px;
+    /* color: #9980FA; */
+}
+
+.rainbow-title {
+    margin-top: 0px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0.4em 0 0.6em;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: -4px 4px #ef3550,
+                 -8px 8px #f48fb1,
+                 -12px 12px #7e57c2,
+                 -16px 16px #2196f3,
+                 -20px 20px #26c6da,
+                 -24px 24px #43a047,
+                 -28px 28px #eeff41,
+                 -32px 32px #f9a825,
+                 -36px 36px #ff5722;
+  }
+
+
+/* placeholders */
+.placeholder {
+    background: #ecf0f1;
+}
+
+.Timeline {
+    height: 300px;
+    min-width: 500px;
+    width: calc(100% + 1em);
+    margin-bottom: 2em;
+}
+
+.Histogram {
+    height: 500px;
+    flex: 1;
+    min-width: 500px;
+    overflow: hidden;
+}
+
+.ScatterPlot {
+    height: 500px;
+    max-width: 500px;
+    margin-right: 2em;
+}
+
+.App__charts {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: -0.5em;
+}
+
+.Timeline,
+.ScatterPlot,
+.Histogram {
+    background: black;
+    padding: 0.6em 1em;
+    margin: 0.5em;
+}

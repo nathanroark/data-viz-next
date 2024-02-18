@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Data Visualizations Demo",
+  name: "Data Viz Demos",
   url: "https://data-viz.nathanroark.dev",
   ogImage: "https://data-viz.nathanroark.dev/og.png",
   description: "Data Visualizations created with D3 in Next.js.",

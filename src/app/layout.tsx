@@ -1,23 +1,12 @@
 import "@/styles/globals.css";
-
 import type { Metadata, Viewport } from "next";
-
-import { Inter } from "next/font/google";
-
 import { TRPCReactProvider } from "@/trpc/react";
-
 import { siteConfig } from "@/lib/site";
-
 import { SiteHeader } from "@/components/site-header";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeProvider } from "@/components/providers";
 import { cn } from "@/lib/utils";
-
 import { fontSans } from "@/lib/fonts";
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -90,23 +79,27 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "min-h-screen overflow-y-scroll bg-background/75 bg-[url('/grid.svg')] pb-36 font-sans antialiased",
             fontSans.className,
           )}
         >
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
             <div vaul-drawer-wrapper="">
-              <div className="relative flex min-h-screen flex-col bg-background">
-                <SiteHeader />
-                <main className="flex-1">
-                  <TRPCReactProvider>{children}</TRPCReactProvider>
-                </main>
-              </div>
+              <SiteHeader />
+              <main className="flex-1">
+                <div className="mx-auto max-w-7xl space-y-8 px-2 pt-20 lg:px-8 lg:py-8">
+                  <div className="rounded-lg bg-vc-border-gradient p-px shadow-lg shadow-black/20">
+                    <div className="rounded-lg bg-black p-3.5 lg:p-6">
+                      <TRPCReactProvider>{children}</TRPCReactProvider>
+                    </div>
+                  </div>
+                </div>
+              </main>
             </div>
             <TailwindIndicator />
           </ThemeProvider>

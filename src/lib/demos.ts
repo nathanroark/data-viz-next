@@ -20,9 +20,10 @@ export const demos: Demo[] = [
     href: "marginal-histogram",
     description: "Highly interactive histogram demo in D3",
   },
-  {
-    name: "Force Graph",
-    href: "force-graph",
-    description: "A force-directed graph in D3",
-  },
+  // not ready yet, might never be
+  // {
+  //   name: "Interactive Force Graph",
+  //   href: "interactive-force-graph",
+  //   description: "A interactive force-directed graph in D3",
+  // },
 ];
