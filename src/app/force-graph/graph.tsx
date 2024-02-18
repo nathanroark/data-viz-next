@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
-import type { Simulation, SimulationNodeDatum } from "d3";
-
+import type { D3DragEvent, Simulation, SimulationNodeDatum } from "d3";
+import { drag as d3drag } from "d3";
 export interface Node {
   id: string;
   group?: number;
@@ -79,30 +79,38 @@ export const ForceGraph: React.FC<ForceGraphProps> = ({ nodes, links }) => {
       // const color = d3.scaleOrdinal(d3.schemeSet2);
       const color = d3.scaleOrdinal(colors);
 
-      const drag = (simulation: Simulation<Node, Link>) => {
-        function dragstarted(event: any, d: any) {
+      function drag(simulation: Simulation<Node, Link>) {
+        const dragstarted = (
+          event: D3DragEvent<SVGCircleElement, Node, Node>,
+          d: Node,
+        ) => {
           if (!event.active) simulation.alphaTarget(0.3).restart();
           d.fx = d.x;
           d.fy = d.y;
-        }
+        };
 
-        function dragged(event: any, d: any) {
+        const dragged = (
+          event: D3DragEvent<SVGCircleElement, Node, Node>,
+          d: Node,
+        ) => {
           d.fx = event.x;
           d.fy = event.y;
-        }
+        };
 
-        function dragended(event: any, d: any) {
+        const dragended = (
+          event: D3DragEvent<SVGCircleElement, Node, Node>,
+          d: Node,
+        ) => {
           if (!event.active) simulation.alphaTarget(0);
           d.fx = null;
           d.fy = null;
-        }
+        };
 
-        return d3
-          .drag<SVGCircleElement, Node>()
+        return d3drag<SVGCircleElement, Node, Node>()
           .on("start", dragstarted)
           .on("drag", dragged)
           .on("end", dragended);
-      };
+      }
 
       function ticked() {
         d3.select(svgRef.current)
@@ -127,7 +135,7 @@ export const ForceGraph: React.FC<ForceGraphProps> = ({ nodes, links }) => {
           .attr("fill", (d) => color(d.group!.toString())) // Use group for color
           .attr("cx", (d) => d.x ?? 0)
           .attr("cy", (d) => d.y ?? 0)
-          .call(drag(sim));
+          .call(drag(sim) as any);
       }
     }
 
