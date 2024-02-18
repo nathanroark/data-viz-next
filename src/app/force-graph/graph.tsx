@@ -3,11 +3,14 @@ import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import type { D3DragEvent, Simulation, SimulationNodeDatum } from "d3";
 import { drag as d3drag } from "d3";
+
 export interface Node {
   id: string;
   group?: number;
   x?: number;
   y?: number;
+  fx?: number | null; // Add this line
+  fy?: number | null; // And this line
 }
 
 export interface Link {
@@ -135,7 +138,7 @@ export const ForceGraph: React.FC<ForceGraphProps> = ({ nodes, links }) => {
           .attr("fill", (d) => color(d.group!.toString())) // Use group for color
           .attr("cx", (d) => d.x ?? 0)
           .attr("cy", (d) => d.y ?? 0)
-          .call(drag(sim) as any);
+          .call(drag(simulation) as any);
       }
     }
 
